@@ -4,10 +4,13 @@ import styled from "styled-components";
 import Card from "./components/Card";
 import { Ionicons } from "@expo/vector-icons";
 import Logo from "./components/Logo";
+import Course from "./components/Course";
+import Menu from "./components/Menu";
 
 export default function App() {
   return (
     <Container>
+      <Menu />
       <SafeAreaView>
         <ScrollView style={{ height: "100%" }}>
           <TitleBar>
@@ -52,6 +55,20 @@ export default function App() {
               />
             ))}
           </ScrollView>
+          <Subtitle>Related Courses</Subtitle>
+
+          {courses.map((course, index) => (
+            <Course
+              key={index}
+              image={course.image}
+              title={course.title}
+              subtitle={course.subtitle}
+              logo={course.logo}
+              author={course.author}
+              avatar={course.avatar}
+              caption={course.caption}
+            />
+          ))}
         </ScrollView>
       </SafeAreaView>
     </Container>
@@ -129,14 +146,14 @@ const logos = [
 
 const cards = [
   {
-    image: require("./assets/background1.jpg"),
+    image: require("./assets/background11.jpg"),
     title: "React Native",
     subtitle: "React Native",
     caption: "1 of 12 sections",
     logo: require("./assets/logo-react.png")
   },
   {
-    image: require("./assets/background2.jpg"),
+    image: require("./assets/background12.jpg"),
     title: "React Native",
     subtitle: "React Native",
     caption: "2 of 12 sections",
@@ -162,5 +179,26 @@ const cards = [
     subtitle: "React Native",
     caption: "5 of 12 sections",
     logo: require("./assets/logo-react.png")
+  }
+];
+
+const courses = [
+  {
+    image: require("./assets/background7.jpg"),
+    title: "Prototype in InVision Studio",
+    subtitle: "10 Sections",
+    logo: require("./assets/logo-studio.png"),
+    author: "Marino Panariello",
+    avatar: require("./assets/avatar.jpg"),
+    caption: "Learn to design with InVision"
+  },
+  {
+    image: require("./assets/background13.jpg"),
+    title: "Design and Code with Framer",
+    subtitle: "8 Sections",
+    logo: require("./assets/logo-studio.png"),
+    author: "Marino Panariello",
+    avatar: require("./assets/avatar.jpg"),
+    caption: "Learn to design and code a React site"
   }
 ];
